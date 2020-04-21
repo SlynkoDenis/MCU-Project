@@ -13,10 +13,6 @@ unsigned int check_status() {
         if (temperature != 0) {
             --temperature;
             status = 0;
-	    
-	    //PORTD |= 0x02;
-	    //_delay_loop_2(800000);
-	    //PORTD &= ~(0x02);
 
             write_temperature(temperature);
 
@@ -26,14 +22,6 @@ unsigned int check_status() {
         ++temperature;
         status = 0;
 
-	//unsigned int i;
-	//for (i = 0; i < 5; ++i) {
-	//	PORTD |= 0x02;
-	//	_delay_loop_2(800000);
-	//	PORTD &= ~(0x02);
-	//	_delay_loop_2(800000);
-	//}
-
         write_temperature(temperature);
 
         return 2;
@@ -41,7 +29,7 @@ unsigned int check_status() {
         status = 0;
 	
 	lcd_com(0x01);
-        lcd_dat('S');	// start
+        lcd_dat('S');
 	lcd_dat('t');
 	lcd_dat('a');
 	lcd_dat('r');
